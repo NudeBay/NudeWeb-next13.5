@@ -1,6 +1,7 @@
 {
-  "name": "next-template",
-  "version": "0.1.0",
+  "name": "nudebay",
+  "version": "0.0.1",
+  "description": "NudeBay is free web app to watch beautiful body and more.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,6 +9,25 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michallesss/NudeWeb.git"
+  },
+  "keywords": [
+    "website",
+    "xxx",
+    "pornography",
+    "porn-website",
+    "nude",
+    "porn-sites",
+    "nudebay"
+  ],
+  "author": "Mikael, Forheal",
+  "license": "copyright",
+  "bugs": {
+    "url": "https://github.com/Michallesss/NudeWeb/issues"
+  },
+  "homepage": "https://github.com/Michallesss/NudeWeb#readme",
   "dependencies": {
     "next": "13.3.1",
     "react": "18.2.0",
@@ -15,6 +35,7 @@
   },
   "devDependencies": {
     "eslint": "8.39.0",
+    "prettier": "^2.8.7",
     "eslint-config-next": "13.3.1"
   }
 }
