@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../private/css/style.module.css'
+import styles from '../assets/css/style.module.css'
 
 export default function Home() {
   return (
