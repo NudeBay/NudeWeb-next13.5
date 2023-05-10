@@ -7,8 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "scss": "sass --watch ./private/scss/:./public/css/ --style=compressed"
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",

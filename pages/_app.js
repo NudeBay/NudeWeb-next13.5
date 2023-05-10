@@ -1,12 +1,14 @@
-import '../assets/css/style.css';
+import styles from '../assets/scss/global.scss'
 import Navbar from '../assets/components/Navbar';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <html lang="en">
-      <Navbar />
-      <Component {...pageProps} />
-    </html>
+    <>
+      <div className={styles.container}>
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 }
 
