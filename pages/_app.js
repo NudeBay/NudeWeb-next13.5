@@ -1,4 +1,4 @@
-import styles from '../assets/scss/global.scss'
+import styles from '../assets/scss/global.scss';
 import Navbar from '../assets/components/Navbar';
 
 function MyApp({ Component, pageProps }) {
@@ -12,4 +12,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp
+export default MyApp;
