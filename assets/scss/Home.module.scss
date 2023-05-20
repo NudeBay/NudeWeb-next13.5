@@ -36,7 +36,7 @@
             // max-height: 90%;
         }
 
-        .top-bar {
+        .topBar {
             display: flex;
             flex-direction: row;
             justify-content: start;
@@ -190,7 +190,7 @@
             }
         }
 
-        .bot-bar {
+        .botBar {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -201,7 +201,7 @@
             width: auto;
             max-width: 100%;
 
-            .tag-list {
+            .tagList {
                 display: flex;
                 flex-direction: row;
                 justify-content: start;
@@ -238,7 +238,7 @@
                 height: 50%;
                 width: 100%;
 
-                .menu-item {
+                .menuItem {
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
