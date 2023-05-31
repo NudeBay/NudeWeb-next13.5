@@ -4,8 +4,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, './assets/scss')],
+    includePaths: [path.join(__dirname, '/assets/scss')],
   },
+  images: {
+    domains: [],
+  }
 }
 
 module.exports = nextConfig
