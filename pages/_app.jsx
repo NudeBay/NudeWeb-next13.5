@@ -4,10 +4,10 @@ import Navbar from '../assets/components/Navbar';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <div className={styles.container}>
-        <Navbar />
+      <Navbar />
+      <main className={`rightPanel`}>
         <Component {...pageProps} />
-      </div>
+      </main>
     </>
   );
 }

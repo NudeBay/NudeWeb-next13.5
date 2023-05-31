@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../assets/scss/Home.module.scss';
+import styles from '../scss/Home.module.scss';
 
 export default function Post({ id, content, contentType, tags, author, date, likes, views }) { // ! include ban to badges
     // Content format: check is content a video or a picture or a text
@@ -137,12 +137,12 @@ export default function Post({ id, content, contentType, tags, author, date, lik
 
     return (
         <div className="player">
-            <div className="top-bar" onClick={(e) => props.onChange(`/search/@${author.nick}`)}>
-                <Image src={author.picture} alt="" title={author.nick} className="icon" draggable="false" />
+            <div className="top-bar" onClick={(e) => console.log('test')}>
+                <Image src={author.picture} width={"500"} height={"500"} alt="" title={author.nick} className="icon" draggable="false" />
                 <span className="text" title="see profile">{author.nick}</span>
                 <div className="badges">
                     {
-                        author.badges.map((badge, index) => <Image src={badgesList[badge]} width={"500"} height={"500"} alt={badge} title={badge} className="badge" draggable="false" />)
+                        author.badges.map((badge, index) => <Image key={index} src={badgesList[badge]} width={"500"} height={"500"} alt={badge} title={badge} className="badge" draggable="false" />)
                     }
                 </div>
                 <ul className="info">
@@ -176,7 +176,7 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 </ul>
                 <ul className="tag-list">
                     {
-                        tags.map((tag, index) => <li className={styles.tag} onClick={(e) => props.onChange(`/search/#${tag}`)}>{tag}</li>)
+                        tags.map((tag, index) => <li key={index} className={styles.tag} onClick={(e) => props.onChange(`/search/#${tag}`)}>{tag}</li>)
                     }
                 </ul>
             </div>
