@@ -1,3 +1,5 @@
+@import 'root';
+
 .home {
     display: flex;
     flex-direction: column;
@@ -29,6 +31,7 @@
 
         .topBar {
             display: flex;
+            position: relative;
             flex-direction: row;
             justify-content: start;
             align-items: center;
@@ -124,6 +127,7 @@
                 
                 .infoItem {
                     display: flex;
+                    position: relative;
                     flex-direction: row;
                     justify-content: start;
                     align-items: center;
@@ -134,8 +138,8 @@
                     font-size: 1.5vh;
 
                     img {
-                        max-width: 75%;
-                        max-height: 75%;
+                        max-width: 80%;
+                        max-height: 80%;
                     }
 
                     &:last-child {
@@ -147,6 +151,7 @@
 
         .content {
             display: flex;
+            position: relative;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -231,6 +236,7 @@
 
                 .menuItem {
                     display: flex;
+                    position: relative;
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
