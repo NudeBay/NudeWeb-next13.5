@@ -97,8 +97,6 @@ export default function Navbar() {
                 setSettingsStyle(activeLastChildMenuStyle);
                 break;
             default:
-                setHomeIcon(solidHome);
-                setHomeStyle(activeMenuStyle);
                 break;
         }
     };
