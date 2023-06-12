@@ -8,7 +8,10 @@ const nextConfig = {
   },
   images: {
     domains: [],
-  }
+  },
+  experimental: { 
+    esmExternals: true 
+  },
 }
 
 module.exports = nextConfig
