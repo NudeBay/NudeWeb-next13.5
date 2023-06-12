@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from '../assets/scss/Home.module.scss';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 // Images
 // badges
 import owner from '../assets/svgs/solid/shield-check.svg';
@@ -26,31 +27,6 @@ import postViews from '../assets/svgs/line/play.svg';
 import postDate from '../assets/svgs/line/calendar.svg';
 
 export default function Post({ id, content, contentType, tags, author, date, likes, views }) {
-    // Content format: check is content a video or a picture or a text
-    let newContent;
-    switch(contentType) {
-        case 'text':
-            newContent=(
-                <span>{content}</span>
-            );
-            break;
-        case 'image':
-            newContent=(
-                <Image src={content} width={250} height={250} alt={""} title={author.nick} loading="lazy" />
-            );
-            break;
-        case 'video':
-            newContent=(
-                <video src={content} alt={""} title={author.nick} autoPlay controls muted loop />
-            );
-            break;
-        default:
-            newContent=(
-                <span>{content}</span>
-            );
-            break;
-    }
-
     // Tags format
     const badgesList={
         'Owner': owner,
@@ -186,7 +162,12 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 </ul>
             </section>
             <section className={styles.content}>
-                {newContent}
+                <Swiper spaceBetween={50} slidesPerView={3}>
+                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>Slide 2</SwiperSlide>
+                    <SwiperSlide>Slide 3</SwiperSlide>
+                    <SwiperSlide>Slide 4</SwiperSlide>
+                </Swiper> {/* ! REPAIR THIS */}
             </section>
             <section className={styles.botBar}>
                 <ul className={styles.menu}>
