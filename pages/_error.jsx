@@ -2,12 +2,12 @@ import styles from '../assets/scss/Error.module.scss';
 
 function Error({ statusCode }) {
     return (
-        <main className={styles.error}>
+        <section className={styles.error}>
             <h1>Error {statusCode}</h1>
             <p>
                 {statusCode ? `An error ${statusCode} occurred on server` : 'An error occurred on client'}
             </p>
-        </main>
+        </section>
     );
 }
 
