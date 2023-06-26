@@ -2,8 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../assets/scss/Home.module.scss';
 import { useState } from 'react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 // Images
 // badges
 import owner from '../assets/svgs/solid/shield-check.svg';
@@ -162,12 +166,19 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 </ul>
             </section>
             <section className={styles.content}>
-                <Swiper spaceBetween={50} slidesPerView={3}>
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                </Swiper> {/* ! REPAIR THIS */}
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+            >
+                <SwiperSlide>Slide 1</SwiperSlide>
+                <SwiperSlide>Slide 2</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 4</SwiperSlide>
+            </Swiper> {/* ! REPAIR THIS */}
             </section>
             <section className={styles.botBar}>
                 <ul className={styles.menu}>
