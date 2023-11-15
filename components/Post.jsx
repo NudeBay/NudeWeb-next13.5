@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 // Images
 // badges
-import owner from '../assets/svgs/solid/shield-check.svg';
 import admin from '../assets/svgs/line/shield-check.svg';
 import mod from '../assets/svgs/line/support.svg';
 import developer from '../assets/svgs/line/code.svg';
@@ -33,53 +32,13 @@ import postDate from '../assets/svgs/line/calendar.svg';
 export default function Post({ id, content, contentType, tags, author, date, likes, views }) {
     // Tags format
     const badgesList={
-        'Owner': owner,
-        'Admin': admin,
-        'Mod': mod,
+        'Administrator': admin,
+        'Moderator': mod,
         'Developer': developer,
         'Verified': verified,
         'PussyPass': pussyPass,
-        'Ban': ban,
+        'Banned': ban,
     };
-
-    // Date format: mm dd, yyyy at hh:mm
-    date=new Date(date);
-    const month=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    let newDate=month[date.getMonth()]+' '+date.getDate()+', '+date.getFullYear();//+' at '+date.getHours()+':'+date.getMinutes();
-
-    // Views format: 1.2k, 1.2m, 1.2b
-    let newViews=views;
-    if (views>=1000) {
-        newViews=views/1000;
-        if (views>=1000000) {
-            newViews=views/1000000;
-            if (views>=1000000000) {
-                newViews=views/1000000000;
-                newViews=newViews.toFixed(1)+'b';
-            } else {
-                newViews=newViews.toFixed(1)+'m';
-            }
-        } else {
-            newViews=newViews.toFixed(1)+'k';
-        }
-    }
-
-    // Likes format: 1.2k, 1.2m, 1.2b
-    let newLikes=likes;
-    if (likes>=1000) {
-        newLikes=likes/1000;
-        if (likes>=1000000) {
-            newLikes=likes/1000000;
-            if (likes>=1000000000) {
-                newLikes=likes/1000000000;
-                newLikes=newLikes.toFixed(1)+'b';
-            } else {
-                newLikes=newLikes.toFixed(1)+'m';
-            }
-        } else {
-            newLikes=newLikes.toFixed(1)+'k';
-        }
-    }
 
     const [menuLikeIcon, setMenuLikeIcon]=useState(() => like);
     const [liked, setLiked]=useState(() => false);
@@ -157,16 +116,16 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 <ul className={styles.info}>
                     <li className={styles.infoItem} title={views}>
                         <Image src={postViews} width={50} height={250} alt="" draggable={false} />
-                        {newViews}
+                        {formatCount(views)}
                     </li>
                     <li className={styles.infoItem} title={date}>
                         <Image src={postDate} width={50} height={250} alt="" draggable={false} />
-                        {newDate}
+                        {formatDate(date)}
                     </li>
                 </ul>
             </section>
             <section className={styles.content}>
-            <Swiper
+            {/* <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
@@ -178,7 +137,7 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 <SwiperSlide>Slide 2</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 4</SwiperSlide>
-            </Swiper> {/* ! REPAIR THIS */}
+            </Swiper> */}
             </section>
             <section className={styles.botBar}>
                 <ul className={styles.menu}>
@@ -204,3 +163,29 @@ export default function Post({ id, content, contentType, tags, author, date, lik
         </article>
     );
 } 
+
+// Date format: mm dd, yyyy at hh:mm
+function formatDate(date) {
+    date=new Date(date);
+    const month=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return month[date.getMonth()]+' '+date.getDate()+', '+date.getFullYear();//+' at '+date.getHours()+':'+date.getMinutes();
+}
+
+// Views/Likes format: 1.2k, 1.2m, 1.2b, 
+function formatCount(count) {
+    if (count>=1000) {
+        newCount=count/1000;
+        if (count>=1000000) {
+            newCount=count/1000000;
+            if (count>=1000000000) {
+                newCount=count/1000000000;
+                newCount=newCount.toFixed(1)+'b';
+            } else {
+                newCount=newCount.toFixed(1)+'m';
+            }
+        } else {
+            newCount=newCount.toFixed(1)+'k';
+        }
+    }
+    return newCount;
+}
