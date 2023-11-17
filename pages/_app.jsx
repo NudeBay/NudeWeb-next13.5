@@ -5,15 +5,13 @@ import Navbar from '../components/Navbar';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <UserProvider>
-        <NextNProgress color='#e5194d' startPosition={0.3} />
-        <Navbar />
-        <main className={`rightPanel`}>
-          <Component {...pageProps} />
-        </main>
-      </UserProvider>
-    </>
+    <UserProvider>
+      <NextNProgress color='#e5194d' startPosition={0.3} />
+      <Navbar />
+      <main className={`rightPanel`}>
+        <Component {...pageProps} />
+      </main>
+    </UserProvider>
   );
 }
 
