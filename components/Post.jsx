@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../assets/scss/Home.module.scss';
 import { useState } from 'react';
+import { FormatDate, FormatCount } from './Format';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -116,14 +117,15 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 <ul className={styles.info}>
                     <li className={styles.infoItem} title={views}>
                         <Image src={postViews} width={50} height={250} alt="" draggable={false} />
-                        {formatCount(views)}
+                        <FormatCount count={views} />
                     </li>
                     <li className={styles.infoItem} title={date}>
                         <Image src={postDate} width={50} height={250} alt="" draggable={false} />
-                        {formatDate(date)}
+                        <FormatDate date={date} />
                     </li>
                 </ul>
             </section>
+
             <section className={styles.content}>
             {/* <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -139,6 +141,7 @@ export default function Post({ id, content, contentType, tags, author, date, lik
                 <SwiperSlide>Slide 4</SwiperSlide>
             </Swiper> */}
             </section>
+            
             <section className={styles.botBar}>
                 <ul className={styles.menu}>
                     <li className={styles.menuItem}>
@@ -163,29 +166,3 @@ export default function Post({ id, content, contentType, tags, author, date, lik
         </article>
     );
 } 
-
-// Date format: mm dd, yyyy at hh:mm
-function formatDate(date) {
-    date=new Date(date);
-    const month=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return month[date.getMonth()]+' '+date.getDate()+', '+date.getFullYear();//+' at '+date.getHours()+':'+date.getMinutes();
-}
-
-// Views/Likes format: 1.2k, 1.2m, 1.2b, 
-function formatCount(count) {
-    if (count>=1000) {
-        newCount=count/1000;
-        if (count>=1000000) {
-            newCount=count/1000000;
-            if (count>=1000000000) {
-                newCount=count/1000000000;
-                newCount=newCount.toFixed(1)+'b';
-            } else {
-                newCount=newCount.toFixed(1)+'m';
-            }
-        } else {
-            newCount=newCount.toFixed(1)+'k';
-        }
-    }
-    return newCount;
-}
