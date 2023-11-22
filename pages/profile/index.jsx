@@ -22,6 +22,7 @@ export default function Profile() {
                 <p>Here's your user ID: {user.sub}</p>
                 <p>Here's your profile picture:</p>
                 <img src={user.picture} alt={user.name} width={100} height={100} />
+                <p><Link href="/api/auth/logout">Logout</Link></p> 
             </section>
         )
     );
